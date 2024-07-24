@@ -15,6 +15,12 @@ app.get('/random',(req,res) => {
     res.render('random.ejs',{rand: num});
 })
 
+app.get('/r/:subreddit',(req,res) => {
+    const subreddit = req.params;
+    res.render('subreddit',subreddit);
+
+})
+
 app.listen(3000, () => {
     console.log('Listening to port no: 3000');
 })  
