@@ -7,10 +7,14 @@
 </head>
 <body>
     <h1><%= foundProduct.name %> </h1>
+    
     <ul>
         <li> Price: <%= foundProduct.price %></li>
         <li> Category: <%= foundProduct.category %></li>
     </ul>
+
     <a href="/products">Back to all products</a>
+    <a href="/products/<%= foundProduct.id %>/edit">Edit Product</a>
+    
 </body>
 </html>
