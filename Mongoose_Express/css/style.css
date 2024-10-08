@@ -1,3 +1,7 @@
-.productContainer{
+*{
     background-color: rgb(244, 152, 33);
+}
+
+h1{
+    color: brown;
 }

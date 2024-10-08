@@ -14,11 +14,11 @@
         <input type="number" name="price" id="price" placeholder="Price" value="<%= product.price %>">
         <label for="category">Category</label>
         <select name="category" id="category">
-            <option value="fruit">Fruit</option>
-            <option value="vegetable">Vegetable</option>
-            <option value="dairy">Dairy</option>
-        </select>
-        <button>Save</button>
+            <% for(let category of categories){ %>
+                <option value="<%= category %>" <%= product.category === category ? 'selected': ''  %>><%= category %></option>
+                <% } %>
+            </select>
+        <button>Save</button> 
     </form>
     <a href="/products">Back to all products</a>
     <a href="/products/<%= product.id %>">Discard Changes</a>

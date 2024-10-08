@@ -10,11 +10,12 @@
     
     <ul>
         <li> Price: <%= foundProduct.price %></li>
-        <li> Category: <%= foundProduct.category %></li>
+        <li> Category: <a href="/products?category=<%= foundProduct.category %>"> <%= foundProduct.category %></a></li>
     </ul>
 
     <a href="/products">Back to all products</a>
     <a href="/products/<%= foundProduct.id %>/edit">Edit Product</a>
+    <form action="/products/<%= foundProduct._id %>?_method=DELETE" method="POST"><button>DELETE</button></form>
     
 </body>
 </html>
