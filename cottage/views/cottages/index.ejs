@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cottages</title>
+</head>
+<body>
+    <h1>All Cottages</h1>
+    <div><a href="/cottages/new">Add Cottage</a></div>
+    <ul>
+        <% for (let cottage of cottages){ %>
+           <li> <a href="/cottages/<%= cottage._id%>"><%= cottage.title %></a> </li>
+            <% } %>
+    </ul>
+</body>
+</html>

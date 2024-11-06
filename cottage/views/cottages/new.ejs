@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Cottage</title>
+</head>
+<body>
+    <h1>Create Cottage</h1>
+    <form action="/cottages" method="POST">
+        <div>
+            <label for="title">Title</label>
+            <input type="text" id="title" name="cottage[title]">
+        </div>
+        <div>
+            <label for="location">Location</label>
+            <input type="text" id="location" name="cottage[location]">
+        </div>
+        <button>Add Cottage</button>
+    </form>
+    <div><a href="/cottages">Back</a></div>
+</body>
+</html>
