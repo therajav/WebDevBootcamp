@@ -1,12 +1,20 @@
 const express = require('express');
 const app = express();
-const morgan = require('morgan')
+const morgan = require('morgan')    
 
 app.use(morgan('tiny'));
 app.use((req,res,next) => {
     req.requestTime = Date.now();
     console.log(req.method, req.path,req.requestTime);
     next();
+})
+
+app.use((req,res,next) => {
+    const {password} = req.query;
+    if(password === '123456'){
+        next();
+    }
+    res.send(`Sorry you've entered wrong password`);
 })
 
 app.get('/',(req,res) => {
@@ -16,6 +24,10 @@ app.get('/',(req,res) => {
 
 app.get('/about',(req,res) => {
     res.send('About Page');
+});
+
+app.get('/secret',(req,res) => {
+    res.send('This is a secret');
 });
 
 app.use((req,res) => {

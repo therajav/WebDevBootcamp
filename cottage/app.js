@@ -4,10 +4,11 @@ const path = require('path');
 const mongoose = require('mongoose');
 const Cottage = require('./models/cottage');
 const methodOverride = require('method-override')
+const ejsMate = require('ejs-mate')
 
 mongoose.connect('mongodb://127.0.0.1:27017/cottageApp')
 .then(() =>{
-    console.log("Mongoose connected successfully")
+    console.log("Mongoose connected successfully");
 })
 .catch((err)=>{
     console.log('Something went wrong!');
@@ -19,6 +20,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/cottageApp')
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
 
+app.engine('ejs', ejsMate);
 app.use(express.urlencoded({extended:true}))
 app.use(methodOverride('_method'));
 
@@ -28,12 +30,14 @@ app.get('/',(req,res) => {
 
 app.get('/cottages', async(req,res) => {
     const cottages = await Cottage.find({});
-    res.render('cottages/index',{cottages})
+    res.render('cottages/index',{cottages,title:'Cottage'});
 });
 
 app.get('/cottages/new', (req,res) => {
     res.render('cottages/new');
 });
+
+
 
 
 
